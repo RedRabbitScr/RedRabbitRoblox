@@ -32,7 +32,7 @@ background.Name = "Background"
 background.Parent = frame
 background.BackgroundTransparency = 1
 background.Size = UDim2.new(1, 0, 1, 0)
-background.Image = "http://www.roblox.com/asset/?id=16288511615"
+background.Image = "http://www.roblox.com/asset/?id=16288559568"
 
 local title = Instance.new("TextLabel")
 title.Name = "Title"
@@ -109,7 +109,7 @@ end
 
 local getKeyButton = createButton("GetKeyButton", UDim2.new(0, 0, 0, 0), "Get Key")
 local loginButton = createButton("LoginButton", UDim2.new(0.35, 0, 0, 0), "Check Key")
-local buyKeyButton = createButton("BuyKeyButton", UDim2.new(0.7, 0, 0, 0), "Premium")
+local buyKeyButton = createButton("BuyKeyButton", UDim2.new(0.75, 0, 0, 0), "Premium")
 
 getKeyButton.MouseButton1Click:Connect(function()
     game.StarterGui:SetCore("SendNotification", {
