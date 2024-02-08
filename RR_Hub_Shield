@@ -71,13 +71,13 @@ closeButton.MouseButton1Click:Connect(function()
     gui:Destroy()
 end)
 
-local keyTextBox = Instance.new("Write Key")
+local keyTextBox = Instance.new("TextBox")
 keyTextBox.Name = "KeyTextBox"
 keyTextBox.Parent = frame
 keyTextBox.Size = UDim2.new(0.7, 0, 0, 30)
 keyTextBox.Position = UDim2.new(0.5, -keyTextBox.Size.X.Offset / 2, 0.95, -35)
 keyTextBox.AnchorPoint = Vector2.new(0.5, 1)
-keyTextBox.PlaceholderText = "Enter the key"
+keyTextBox.PlaceholderText = "Digite a chave"
 keyTextBox.Font = Enum.Font.Ubuntu
 keyTextBox.TextSize = 18
 keyTextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -108,13 +108,13 @@ local function createButton(name, position, text)
 end
 
 local getKeyButton = createButton("GetKeyButton", UDim2.new(0, 0, 0, 0), "Get Key")
-local loginButton = createButton("LoginButton", UDim2.new(0.35, 0, 0, 0), "Check Key")
-local buyKeyButton = createButton("BuyKeyButton", UDim2.new(0.7, 0, 0, 0), "Buy Premium")
+local loginButton = createButton("LoginButton", UDim2.new(0.35, 0, 0, 0), "Login")
+local buyKeyButton = createButton("BuyKeyButton", UDim2.new(0.7, 0, 0, 0), "Buy Key")
 
 getKeyButton.MouseButton1Click:Connect(function()
     game.StarterGui:SetCore("SendNotification", {
         Title = "RedRabbit Hub",
-        Text = "Please go to the URL that was copied to your clipboard.",
+        Text = "Por favor, vá para a URL que foi copiada para a sua área de transferência.",
         Duration = 4
     })
     setclipboard(linkvertise)
@@ -126,7 +126,7 @@ loginButton.MouseButton1Click:Connect(function()
     if enteredKey == uniqueKey then
         game.StarterGui:SetCore("SendNotification", {
             Title = "RedRabbit Hub",
-            Text = "Correct key! Loading script...",
+            Text = "Chave correta! Carregando script...",
             Duration = 4
         })
         loadstring(thescript)()
@@ -134,7 +134,7 @@ loginButton.MouseButton1Click:Connect(function()
     else
         game.StarterGui:SetCore("SendNotification", {
             Title = "RedRabbit Hub",
-            Text = "Invalid key!",
+            Text = "Chave inválida!",
             Duration = 4
         })
     end
@@ -143,7 +143,7 @@ end)
 buyKeyButton.MouseButton1Click:Connect(function()
     game.StarterGui:SetCore("SendNotification", {
         Title = "RedRabbit Hub",
-        Text = "Link to buy the key copied to the clipboard.",
+        Text = "Link para comprar a chave copiado para a área de transferência.",
         Duration = 4
     })
     setclipboard(discordLink)
