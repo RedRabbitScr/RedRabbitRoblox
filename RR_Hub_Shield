@@ -71,13 +71,13 @@ closeButton.MouseButton1Click:Connect(function()
     gui:Destroy()
 end)
 
-local keyTextBox = Instance.new("Write")
+local keyTextBox = Instance.new("TextBox")
 keyTextBox.Name = "KeyTextBox"
 keyTextBox.Parent = frame
 keyTextBox.Size = UDim2.new(0.7, 0, 0, 30)
 keyTextBox.Position = UDim2.new(0.5, -keyTextBox.Size.X.Offset / 2, 0.95, -35)
 keyTextBox.AnchorPoint = Vector2.new(0.5, 1)
-keyTextBox.PlaceholderText = "Digite a chave"
+keyTextBox.PlaceholderText = "Enter the key"
 keyTextBox.Font = Enum.Font.Ubuntu
 keyTextBox.TextSize = 18
 keyTextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
