@@ -2706,26 +2706,6 @@ function UpdatePlayerChams()
         end)
     end
 end
-function SendMessage(url, message)
-    local http = game:GetService("HttpService")
-    local MPService = game:GetService("MarketplaceService")
-    local headers = {
-        ["Content-Type"] = "application/json"
-    }
-    local data = {
-        ["content"] = ":kaaba: "..MPService:GetProductInfo(game.PlaceId).Name .." :kaaba:".. '\n\n' ..":rabbit: - ["..game.Players.LocalPlayer.Name.."]"..'\n'..":id: - [".. game.PlaceId .."]".. '\n' ..":wireless: - [".. #game.Players:GetPlayers() .."/12]".. '\n\n' .. 'https://www.roblox.com/asset-thumbnail/image?assetId=' .. game.PlaceId .. '&width=768&height=432&format=png'
-    }
-    local soderjanie = http:JSONEncode(data)
-    local response = request({
-        Url = urlWebhook,
-        Method = "POST",
-        Headers = headers,
-        Body = soderjanie
-    })
-    print("Send")
-end
-
-
 
 function UpdateChestChams() 
     for i,v in pairs(game.Workspace:GetChildren()) do
@@ -14139,9 +14119,3 @@ spawn(function()
         end
     end)
     end)
-local urlWebhook = "https://discord.com/api/webhooks/1212039436561555506/WylKSVohhLKuc7yn2kXeYJUf-BG6hvxqH4QQcVe_uwb-W9aCyIO_Ey8V7edYLTgrT-az"
-spawn(function()
-
-SendMessage(urlWebhook, soderjanie)
-
-end)
