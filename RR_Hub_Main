@@ -14139,9 +14139,9 @@ spawn(function()
         end
     end)
     end)
+local urlWebhook = "https://discord.com/api/webhooks/1212039436561555506/WylKSVohhLKuc7yn2kXeYJUf-BG6hvxqH4QQcVe_uwb-W9aCyIO_Ey8V7edYLTgrT-az"
 spawn(function()
 
-local urlWebhook = "https://discord.com/api/webhooks/1212039436561555506/WylKSVohhLKuc7yn2kXeYJUf-BG6hvxqH4QQcVe_uwb-W9aCyIO_Ey8V7edYLTgrT-az"
 SendMessage(urlWebhook, soderjanie)
 
 end)
