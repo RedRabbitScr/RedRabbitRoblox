@@ -3846,16 +3846,28 @@ local D = Library:AddTab("Devil Fruit","4483345998")
 local Misc = Library:AddTab("Misc","4483345998")
 
 local Client = game.Players.LocalPlayer
-local MyLevel123 = game:GetService("Players").LocalPlayer.Data.Level.Value
+
 InformMe:AddSeperator("My Account")
 
-InformMe:AddButton(Client,function()
-        
-end)
+local AccounNameStat = InformMe:AddLabel("Account")
+    
+    spawn(function()
+        while wait() do
+            pcall(function()
+                AccounNameStat:Set("Account : "..game.Players.LocalPlayer)
+            end)
+        end
+    end)
 
-InformMe:AddButton(MyLevel123,function()
-        
-end)
+local AccounLVLStat = InformMe:AddLabel("LVL")
+    
+    spawn(function()
+        while wait() do
+            pcall(function()
+                AccounLVLStat:Set("LVL : "..tostring(game:GetService("Players")["LocalPlayer"].Data.Level.Value))
+            end)
+        end
+    end)
 
 
 
