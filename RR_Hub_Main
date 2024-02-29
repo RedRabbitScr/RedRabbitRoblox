@@ -3847,7 +3847,7 @@ local Misc = Library:AddTab("Misc","4483345998")
 
 local Client = game.Players.LocalPlayer
 InformMe:AddSeperator("My Account")
-InformMe:AddLabel('Name: '..Client)
+
 
 
 
