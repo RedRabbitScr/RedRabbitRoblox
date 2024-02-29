@@ -3845,30 +3845,39 @@ local S = Library:AddTab("Shop","4483345998")
 local D = Library:AddTab("Devil Fruit","4483345998")
 local Misc = Library:AddTab("Misc","4483345998")
 
-local Client = game.Players.LocalPlayer
+
 
 InformMe:AddSeperator("My Account")
 
-local AccounNameStat = InformMe:AddLabel("Account")
+local AccounNameStat = InformMe:AddLabel("Name")
     
     spawn(function()
         while wait() do
             pcall(function()
-                AccounNameStat:Set("Account : "..tostring(game:GetService("Players")["LocalPlayer"]))
+                AccounNameStat:Set("Name : "..tostring(game:GetService("Players")["LocalPlayer"]))
             end)
         end
     end)
 
-local AccounLVLStat = InformMe:AddLabel("LVL")
+local AccounLVLStat = InformMe:AddLabel("Level")
     
     spawn(function()
         while wait() do
             pcall(function()
-                AccounLVLStat:Set("LVL : "..tostring(game:GetService("Players")["LocalPlayer"].Data.Level.Value))
+                AccounLVLStat:Set("Level : "..tostring(game:GetService("Players")["LocalPlayer"].Data.Level.Value))
             end)
         end
     end)
 
+local AccounBeliStat = InformMe:AddLabel("Beli")
+    
+    spawn(function()
+        while wait() do
+            pcall(function()
+                AccounBeliStat:Set("Beli : "..tostring(game:GetService("Players")["LocalPlayer"].Data.Beli.Value))
+            end)
+        end
+    end)
 
 
 
@@ -3957,7 +3966,7 @@ spawn(function()
     end
 end)
 
-
+local Client = game.Players.LocalPlayer
 local STOP = require(Client.PlayerScripts.CombatFramework.Particle)
 local STOPRL = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib)
 spawn(function()
@@ -13446,7 +13455,7 @@ Misc:AddToggle("Graphic",false,function(v)
         end
     end)
 
-    Misc:AddSeperator("Ã¢Å¡â„¢Ã¯Â¸Â Misc Ã¢Å¡â„¢Ã¯Â¸Â")
+    Misc:AddSeperator("          Misc          ")
 
 Misc:AddToggle("Anti AFK", true, function()
 local vu = game:GetService("VirtualUser")
