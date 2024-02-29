@@ -3879,6 +3879,15 @@ local AccounBeliStat = InformMe:AddLabel("Beli")
         end
     end)
 
+local AccounFragmentsStat = InformMe:AddLabel("Fragments")
+    
+    spawn(function()
+        while wait() do
+            pcall(function()
+                AccounFragmentsStat:Set("Fragments : "..tostring(game:GetService("Players")["LocalPlayer"].Data.Fragments.Value))
+            end)
+        end
+    end)
 
 
 Main:AddSeperator("Farm Settings")
