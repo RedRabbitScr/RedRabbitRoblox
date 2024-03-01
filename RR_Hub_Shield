@@ -122,7 +122,7 @@ local HttpService = game:GetService("HttpService")
 local timekey
 local keyfile = {}
 
-PremiumName = {}
+
 PremTable = {}
 LocalName = tostring(game.Players.LocalPlayer)
 
@@ -135,7 +135,26 @@ pcall(function()
 end)
 
 timekey = keyfile["timekey"]
-PremiumName = tostring(PremTable["users"]["UserPrem"])
+PM1 = tostring(PremTable["users"]["UserPrem1"])
+PM2 = tostring(PremTable["users"]["UserPrem2"])
+PM3 = tostring(PremTable["users"]["UserPrem3"])
+PM4 = tostring(PremTable["users"]["UserPrem4"])
+PM5 = tostring(PremTable["users"]["UserPrem5"])
+PM6 = tostring(PremTable["users"]["UserPrem6"])
+PM7 = tostring(PremTable["users"]["UserPrem7"])
+PM8 = tostring(PremTable["users"]["UserPrem8"])
+PM9 = tostring(PremTable["users"]["UserPrem9"])
+PM10 = tostring(PremTable["users"]["UserPrem10"])
+PM11 = tostring(PremTable["users"]["UserPrem11"])
+PM12 = tostring(PremTable["users"]["UserPrem12"])
+PM13 = tostring(PremTable["users"]["UserPrem13"])
+PM14 = tostring(PremTable["users"]["UserPrem14"])
+PM15 = tostring(PremTable["users"]["UserPrem15"])
+PM16 = tostring(PremTable["users"]["UserPrem16"])
+PM17 = tostring(PremTable["users"]["UserPrem17"])
+PM18 = tostring(PremTable["users"]["UserPrem18"])
+PM19 = tostring(PremTable["users"]["UserPrem19"])
+
 
 pcall(function()
     if timekey == uniqueKey then
@@ -147,7 +166,7 @@ pcall(function()
         gui:Destroy()
         loadstring(thescript)()
     end
-    if PremiumName == LocalName then
+    if PM1 or PM2 or PM3 or PM4 or PM5 or PM6 or PM7 or PM8 or PM9 or PM10 or PM11 or PM12 or PM13 or PM14 or PM15 or PM16 or PM17 or PM18 or PM19 == LocalName then
         game.StarterGui:SetCore("SendNotification", {
             Title = "RedRabbit",
             Text = "Loading script...",
