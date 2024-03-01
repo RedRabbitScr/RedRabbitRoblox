@@ -1,11 +1,13 @@
 local linkvertise = 'https://linkvertise.com/1113293/redrabbit-hub-roblox?o=sharing'
-local discordLink = '1234'
+local discordLink = 'https://discord.gg/CnWs3hCNbt'
 local uniqueKey = game:HttpGet'https://pastebin.com/raw/yfsakbmb';
 
 local thescript = [[
     loadstring(game:HttpGet("https://pastebin.com/raw/DLiJvC7U"))()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/RedRabbitScr/RedRabbitRoblox/main/RR_Hub_Main"))()
 ]]
+
+
 
 local gui = Instance.new("ScreenGui")
 gui.Name = "AlphaHubGUI"
@@ -42,7 +44,7 @@ title.BackgroundTransparency = 1
 title.Size = UDim2.new(1, 0, 0, 30)
 title.Position = UDim2.new(0, 0, 0, 10)
 title.Font = Enum.Font.Ubuntu
-title.Text = "RedRabbit Hub"
+title.Text = "WhiteRabbit Hub"
 title.TextSize = 24
 title.TextColor3 = Color3.fromRGB(255, 255, 255)
 
@@ -112,9 +114,32 @@ local getKeyButton = createButton("GetKeyButton", UDim2.new(0, 0, 0, 0), "Get Ke
 local loginButton = createButton("LoginButton", UDim2.new(0.40, 0, 0, 0), "Check Key")
 local buyKeyButton = createButton("BuyKeyButton", UDim2.new(0.8, 0, 0, 0), "Premium")
 
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local HttpService = game:GetService("HttpService")
+local timekey
+local keyfile = {}
+
+pcall(function()
+    keyfile = HttpService:JSONDecode(readfile("WhiteRabbit"))
+end)
+ 
+timekey = keyfile["timekey"]
+
+pcall(function()
+    if timekey == uniqueKey then
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "WhiteRabbit",
+            Text = "Loading script...",
+            Duration = 4
+        })
+        gui:Destroy()
+        loadstring(thescript)()
+    end
+end)
+
 getKeyButton.MouseButton1Click:Connect(function()
     game.StarterGui:SetCore("SendNotification", {
-        Title = "RedRabbit Hub",
+        Title = "WhiteRabbit",
         Text = "Please go to the URL that was copied to your clipboard.",
         Duration = 4
     })
@@ -126,15 +151,17 @@ loginButton.MouseButton1Click:Connect(function()
 
     if enteredKey == uniqueKey then
         game.StarterGui:SetCore("SendNotification", {
-            Title = "RedRabbit Hub",
+            Title = "WhiteRabbit",
             Text = "Correct key! Loading script...",
             Duration = 4
         })
-        loadstring(thescript)()
+        keyfile["timekey"] = enteredKey
+        writefile("WhiteRabbit", HttpService:JSONEncode(keyfile))
         gui:Destroy()
+        loadstring(thescript)()
     else
         game.StarterGui:SetCore("SendNotification", {
-            Title = "RedRabbit Hub",
+            Title = "WhiteRabbit",
             Text = "Invalid key!",
             Duration = 4
         })
@@ -143,7 +170,7 @@ end)
 
 buyKeyButton.MouseButton1Click:Connect(function()
     game.StarterGui:SetCore("SendNotification", {
-        Title = "RedRabbit Hub",
+        Title = "WhiteRabbit",
         Text = "Link to buy the key copied to the clipboard.",
         Duration = 4
     })
