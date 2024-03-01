@@ -1,9 +1,8 @@
 local linkvertise = 'https://linkvertise.com/1113293/redrabbit-hub-roblox?o=sharing'
 local discordLink = 'https://discord.gg/CnWs3hCNbt'
 local uniqueKey = game:HttpGet'https://pastebin.com/raw/yfsakbmb'
-local premusers = {}
-local premusers = game:HttpGet'https://pastebin.com/06RJiXYp'
-premuser =  premusers["premiumusers"]
+local premusers = game:HttpGet'https://pastebin.com/raw/06RJiXYp'
+
 
 local thescript = [[
     loadstring(game:HttpGet("https://pastebin.com/raw/DLiJvC7U"))()
@@ -117,16 +116,22 @@ local getKeyButton = createButton("GetKeyButton", UDim2.new(0, 0, 0, 0), "Get Ke
 local loginButton = createButton("LoginButton", UDim2.new(0.40, 0, 0, 0), "Check Key")
 local buyKeyButton = createButton("BuyKeyButton", UDim2.new(0.8, 0, 0, 0), "Premium")
 
-local LocalPlayer = game:GetService("Players").LocalPlayer
 local HttpService = game:GetService("HttpService")
+local LocalName = tostring(game.Players.LocalPlayer)
+
 local timekey
 local keyfile = {}
 
+local premuserlist = {}
+
+
 pcall(function()
     keyfile = HttpService:JSONDecode(readfile("RedRabbit"))
+    premuserlist = HttpService:JSONDecode(premusers)
 end)
- 
+
 timekey = keyfile["timekey"]
+PremUserName = tostring(premuserlist["premiumusers"])
 
 pcall(function()
     if timekey == uniqueKey then
@@ -138,7 +143,7 @@ pcall(function()
         gui:Destroy()
         loadstring(thescript)()
     end
-    if premuser == LocalPlayer then
+    if LocalName == PremUserName then
         game.StarterGui:SetCore("SendNotification", {
             Title = "RedRabbit",
             Text = "Loading script...",
