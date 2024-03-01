@@ -117,7 +117,7 @@ local loginButton = createButton("LoginButton", UDim2.new(0.40, 0, 0, 0), "Check
 local buyKeyButton = createButton("BuyKeyButton", UDim2.new(0.8, 0, 0, 0), "Premium")
 
 local HttpService = game:GetService("HttpService")
-local LocalName = tostring(game.Players.LocalPlayer)
+
 
 local timekey
 local keyfile = {}
@@ -127,12 +127,14 @@ local premuserlist = {}
 
 pcall(function()
     keyfile = HttpService:JSONDecode(readfile("RedRabbit"))
+end)
+pcall(function()
     premuserlist = HttpService:JSONDecode(premusers)
 end)
 
 timekey = keyfile["timekey"]
 PremUserName = tostring(premuserlist["premiumusers"])
-
+LocalName = tostring(game.Players.LocalPlayer)
 pcall(function()
     if timekey == uniqueKey then
         game.StarterGui:SetCore("SendNotification", {
