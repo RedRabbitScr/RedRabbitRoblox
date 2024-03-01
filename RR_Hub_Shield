@@ -166,7 +166,7 @@ pcall(function()
         gui:Destroy()
         loadstring(thescript)()
     end
-    if PM1 or PM2 or PM3 or PM4 or PM5 or PM6 or PM7 or PM8 or PM9 or PM10 or PM11 or PM12 or PM13 or PM14 or PM15 or PM16 or PM17 or PM18 or PM19 == LocalName then
+    if PM1 == LocalName or PM2 == LocalName or PM3 == LocalName or PM4 == LocalName or PM5 == LocalName or PM6 == LocalName or PM7 == LocalName or PM8 == LocalName or PM9 == LocalName or PM10 == LocalName or PM11 == LocalName or PM12 == LocalName or PM13 == LocalName or PM14 == LocalName or PM15 == LocalName or PM16 == LocalName or PM17 == LocalName or PM18 == LocalName or PM19 == LocalName then
         game.StarterGui:SetCore("SendNotification", {
             Title = "RedRabbit",
             Text = "Loading script...",
@@ -174,6 +174,8 @@ pcall(function()
         })
         gui:Destroy()
         loadstring(thescript)()
+    else
+        print("not prem")
     end
 end)
 
