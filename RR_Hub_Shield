@@ -133,7 +133,7 @@ end)
 pcall(function()
     PremTable = HttpService:JSONDecode(urlPremiumList)
 end)
-
+PremUser = false
 timekey = keyfile["timekey"]
 PM1 = tostring(PremTable["users"]["UserPrem1"])
 PM2 = tostring(PremTable["users"]["UserPrem2"])
@@ -157,18 +157,14 @@ PM19 = tostring(PremTable["users"]["UserPrem19"])
 
 
 pcall(function()
-    if timekey == uniqueKey then
-        game.StarterGui:SetCore("SendNotification", {
-            Title = "RedRabbit",
-            Text = "Loading script...",
-            Duration = 4
-        })
-        gui:Destroy()
-        loadstring(thescript)()
-    end
     if PM1 == LocalName or PM2 == LocalName or PM3 == LocalName or PM4 == LocalName or PM5 == LocalName or PM6 == LocalName or PM7 == LocalName or PM8 == LocalName or PM9 == LocalName or PM10 == LocalName or PM11 == LocalName or PM12 == LocalName or PM13 == LocalName or PM14 == LocalName or PM15 == LocalName or PM16 == LocalName or PM17 == LocalName or PM18 == LocalName or PM19 == LocalName then
+            PremUser = true
+    end
+end)
+pcall(function()
+    if PremUser == true then
         game.StarterGui:SetCore("SendNotification", {
-            Title = "RedRabbit",
+            Title = "RedRabbit Premium",
             Text = "Loading script...",
             Duration = 4
         })
@@ -176,6 +172,15 @@ pcall(function()
         loadstring(thescript)()
     else
         print("not prem")
+    end
+    if timekey == uniqueKey and PremUser == false then
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "RedRabbit Beta",
+            Text = "Loading script...",
+            Duration = 4
+        })
+        gui:Destroy()
+        loadstring(thescript)()
     end
 end)
 
