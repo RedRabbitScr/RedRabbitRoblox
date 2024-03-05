@@ -1,6 +1,7 @@
 local urlPremiumList = game:HttpGet'https://pastebin.com/raw/06RJiXYp'
-local uniqueKey = game:HttpGet'https://pastebin.com/raw/yfsakbmb'
 local DiscUrl = "https://discord.com/api/webhooks/1212039436561555506/WylKSVohhLKuc7yn2kXeYJUf-BG6hvxqH4QQcVe_uwb-W9aCyIO_Ey8V7edYLTgrT-az"
+local DiscMPService = game:GetService("MarketplaceService")
+local HttpService = game:GetService("HttpService")
 
 local ScriptsLink = [[
     loadstring(game:HttpGet("https://raw.githubusercontent.com/RedRabbitScr/RedRabbitRoblox/main/RR_Hub_Main"))()
@@ -8,10 +9,7 @@ local ScriptsLink = [[
 local FreeShield = [[
     loadstring(game:HttpGet("https://github.com/RedRabbitScr/RedRabbitRoblox/raw/main/RR_Test"))()
 ]]
-
-local DiscMPService = game:GetService("MarketplaceService")
-local HttpService = game:GetService("HttpService")
-
+Status = "None"
 pcall(function()
 if game.PlaceId == 2753915549 then
         World = "FIRST SEA"
@@ -36,24 +34,24 @@ if game.PlaceId ~= 2753915549 and game.PlaceId ~= 4442272183 and game.PlaceId ~=
     DiscFragmentsPlayer = "None"
 end
 end)
- 
+
 local DiscNameGame = DiscMPService:GetProductInfo(game.PlaceId).Name
 local DiscIDServer = game.JobId
 local DiscNamePlayer = tostring(game.Players.LocalPlayer)
 local DiscDate = os.date("%d.%m.%Y")
 local DiscTime = os.date("%H:%M")
- 
+
 function WebHookAdm(url, embed)
     local http = game:GetService("HttpService")
     local headers = {
         ["Content-Type"] = "application/json"
     }
     local data = {
- 
+      
         ["embeds"] = {
             {
         ["title"] = ":black_small_square::black_medium_small_square::black_medium_square: :black_large_square: [ "..DiscNamePlayer.." ] :black_large_square: :black_medium_square::black_medium_small_square::black_small_square:",
-      ["description"] = ":floppy_disk: "..DiscDate.." :alarm_clock: "..DiscTime.." .......... Premium: **"..tostring(PremUser).."**",
+      ["description"] = ":floppy_disk: "..DiscDate.." :alarm_clock: "..DiscTime.." .......... Status: **"..Status.."**",
       ["color"] = 65280,
       ["fields"] = {
         {
@@ -81,32 +79,19 @@ function WebHookAdm(url, embed)
     print("RedRabbit")
 end
 
-function LoaderScrPrem()
-        game.StarterGui:SetCore("SendNotification", {
-            Title = "RedRabbit Premium",
-            Text = "Loading script...",
-            Duration = 4
-        })
-        gui:Destroy()
-        loadstring(ScriptsLink)()
-end
-
 CheckTimerPrem = 0
 PremCheck = true
 PremUser = false
 
 spawn(function()
         while wait() do
-    timekey
-    keyfile = {}
     PremTable = {}
     LocalNameCheck = tostring(game.Players.LocalPlayer)
+
     pcall(function()
       PremTable = HttpService:JSONDecode(urlPremiumList)
-      keyfile = HttpService:JSONDecode(readfile("RedRabbit"))
-      timekey = keyfile["timekey"]
     end)
- 
+
     if CheckTimerPrem >= 0 and CheckTimerPrem < 100 and PremUser == false then
       CheckTimerPrem = CheckTimerPrem + 1
       PremNameLine = "UserPrem"..tostring(CheckTimerPrem)
@@ -115,25 +100,17 @@ spawn(function()
           PremUser = true
         end
       end
-      if CheckTimerPrem == 100 and PremCheck == true or PremUser == true and PremCheck == true then
+      if CheckTimerPrem == 100 and PremUser == true and PremCheck == true then
         PremCheck = false
+        Status = "premium"
         WebHookAdm(DiscUrl, DiscBody)
-        LoaderScrPrem()
+        loadstring(ScriptsLink)()
       end
       if CheckTimerPrem == 100 and PremUser == false and PremCheck == true then
         PremCheck = false
+        Status = "free"
         WebHookAdm(DiscUrl, DiscBody)
-          if timekey == uniqueKey then
-            game.StarterGui:SetCore("SendNotification", {
-              Title = "RedRabbit Free",
-              Text = "Loading script...",
-              Duration = 4
-          })
-            gui:Destroy()
-            loadstring(ScriptsLink)()
-          else
-            loadstring(FreeShield)()
-          end
+        loadstring(FreeShield)()
       end
     end
 end)
