@@ -6,6 +6,7 @@ local ScriptsLink = [[
     loadstring(game:HttpGet("https://raw.githubusercontent.com/RedRabbitScr/RedRabbitRoblox/main/RR_Hub_Main"))()
 ]]
 
+
 local gui = Instance.new("ScreenGui")
 gui.Name = "AlphaHubGUI"
 gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -111,14 +112,29 @@ local getKeyButton = createButton("GetKeyButton", UDim2.new(0, 0, 0, 0), "Get Ke
 local loginButton = createButton("LoginButton", UDim2.new(0.40, 0, 0, 0), "Check Key")
 local buyKeyButton = createButton("BuyKeyButton", UDim2.new(0.8, 0, 0, 0), "Premium")
 
+local HttpService = game:GetService("HttpService")
+
+
 local timekey
 local keyfile = {}
-local HttpService = game:GetService("HttpService")
 
 pcall(function()
     keyfile = HttpService:JSONDecode(readfile("RedRabbit"))
 end)
+
 timekey = keyfile["timekey"]
+
+pcall(function()
+    if timekey == uniqueKey then
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "RedRabbit Beta",
+            Text = "Loading script...",
+            Duration = 4
+        })
+        gui:Destroy()
+        loadstring(ScriptsLink)()
+    end
+end)
 
 getKeyButton.MouseButton1Click:Connect(function()
     game.StarterGui:SetCore("SendNotification", {
@@ -131,6 +147,7 @@ end)
 
 loginButton.MouseButton1Click:Connect(function()
     local enteredKey = keyTextBox.Text
+
     if enteredKey == uniqueKey then
         game.StarterGui:SetCore("SendNotification", {
             Title = "Red Rabbit",
@@ -153,7 +170,7 @@ end)
 buyKeyButton.MouseButton1Click:Connect(function()
     game.StarterGui:SetCore("SendNotification", {
         Title = "Red Rabbit",
-        Text = "Link to buy Premium copied to the clipboard.",
+        Text = "Link to buy the key copied to the clipboard.",
         Duration = 4
     })
     setclipboard(discordLink)
