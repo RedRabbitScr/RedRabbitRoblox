@@ -3849,12 +3849,57 @@ local Misc = Library:AddTab("Misc","4483345998")
 
 InformMe:AddSeperator("My Account")
 
+local PremHttpService = game:GetService("HttpService")
+local urlPremiumList = game:HttpGet'https://pastebin.com/raw/06RJiXYp'
+CheckTimerPrem = 0
+PremUser = false
+PremCheck = true
+PremStatus = "None"
+spawn(function()
+        while wait() do
+		PremTable = {}
+		LocalNameCheck = tostring(game.Players.LocalPlayer)
+
+		pcall(function()
+   		PremTable = PremHttpService:JSONDecode(urlPremiumList)
+		end)
+
+    if CheckTimerPrem >= 0 and CheckTimerPrem < 100 and PremUser == false and PremCheck == true then
+    	CheckTimerPrem = CheckTimerPrem + 1
+  		PremNameLine = "UserPrem"..tostring(CheckTimerPrem)
+  		PremStats = tostring(PremTable["users"][PremNameLine])
+
+  		if PremStats == LocalNameCheck then 
+  			PremUser = true
+  			CheckTimerPrem = 100
+  		end
+  	end
+
+  	if PremUser == true and CheckTimerPrem == 100 and PremCheck == true then 
+		PremCheck = false
+  	end
+
+    if PremUser == false and CheckTimerPrem == 100 and PremCheck == true then 
+      	PremCheck = false
+    end
+
+    if PremUser == true then 
+		PremStatus = "Premium"
+  	end
+
+    if PremUser == false then 
+      	PremStatus = "Free"
+    end
+
+	end
+end)
+
 local AccounNameStat = InformMe:AddLabel("Name")
     
     spawn(function()
         while wait() do
             pcall(function()
-                AccounNameStat:Set("Name : "..tostring(game:GetService("Players")["LocalPlayer"]))
+                AccounNameStat:Set("Name : [ "..tostring(game:GetService("Players")["LocalPlayer"]).." ] | Status: "..PremStatus)
             end)
         end
     end)
@@ -3864,7 +3909,7 @@ local AccounLVLStat = InformMe:AddLabel("Level")
     spawn(function()
         while wait() do
             pcall(function()
-                AccounLVLStat:Set("Level : "..tostring(game:GetService("Players")["LocalPlayer"].Data.Level.Value))
+                AccounLVLStat:Set("Level : [ "..tostring(game:GetService("Players")["LocalPlayer"].Data.Level.Value).." ]")
             end)
         end
     end)
@@ -3874,7 +3919,7 @@ local AccounBeliStat = InformMe:AddLabel("Beli")
     spawn(function()
         while wait() do
             pcall(function()
-                AccounBeliStat:Set("Beli : "..tostring(game:GetService("Players")["LocalPlayer"].Data.Beli.Value))
+                AccounBeliStat:Set("Beli : [ "..tostring(game:GetService("Players")["LocalPlayer"].Data.Beli.Value).." ]")
             end)
         end
     end)
@@ -3884,7 +3929,7 @@ local AccounFragmentsStat = InformMe:AddLabel("Fragments")
     spawn(function()
         while wait() do
             pcall(function()
-                AccounFragmentsStat:Set("Fragments : "..tostring(game:GetService("Players")["LocalPlayer"].Data.Fragments.Value))
+                AccounFragmentsStat:Set("Fragments : [ "..tostring(game:GetService("Players")["LocalPlayer"].Data.Fragments.Value).." ]")
             end)
         end
     end)
@@ -5323,9 +5368,9 @@ end)
         pcall(function()
             while wait() do
     if game.Workspace._WorldOrigin.Locations:FindFirstChild('Mirage Island') then
-    Mirragecheck:Set('ðŸï¸: Mystic Island Spawning')
+    Mirragecheck:Set('Mystic Island Spawning')
     else
-      Mirragecheck:Set('âŒ: Mystic Island Not Found ' )end
+      Mirragecheck:Set('Mystic Island Not Found ' )end
             end
         end)
 end)
@@ -6786,9 +6831,9 @@ spawn(function()
     pcall(function()
         while wait() do
             if game.Workspace._WorldOrigin.Locations:FindFirstChild('Frozen Dimension') then
-                FrozenIsland:Set('âœ…: Frozen Dimension Spawning')
+                FrozenIsland:Set('Frozen Dimension Spawning')
             else
-                FrozenIsland:Set('âŒ: Frozen Dimension Not Found')
+                FrozenIsland:Set('Frozen Dimension Not Found')
             end
         end
     end)
