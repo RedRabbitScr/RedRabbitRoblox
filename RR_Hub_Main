@@ -3902,7 +3902,7 @@ local AccounNameStat = InformMe:AddLabel("Name")
     spawn(function()
         while wait() do
             pcall(function()
-                AccounNameStat:Set("Name : [ "..tostring(game:GetService("Players")["LocalPlayer"]).." ] | Status: "..PremStatus)
+                AccounNameStat:Set("Name : [ "..tostring(game:GetService("Players")["LocalPlayer"]).." ] | Status: [ "..PremStatus.." ]")
             end)
         end
     end)
