@@ -98,17 +98,18 @@ spawn(function()
       PremStats = tostring(PremTable["users"][PremNameLine])
         if PremStats == LocalNameCheck then 
           PremUser = true
+          CheckTimerPrem = 100
         end
       end
       if CheckTimerPrem == 100 and PremUser == true and PremCheck == true then
         PremCheck = false
-        Status = "premium"
+        Status = "Premium"
         WebHookAdm(DiscUrl, DiscBody)
         loadstring(ScriptsLink)()
       end
       if CheckTimerPrem == 100 and PremUser == false and PremCheck == true then
         PremCheck = false
-        Status = "free"
+        Status = "Free"
         WebHookAdm(DiscUrl, DiscBody)
         loadstring(FreeShield)()
       end
