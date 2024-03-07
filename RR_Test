@@ -1,5 +1,5 @@
 local linkvertise = 'https://linkvertise.com/1113293/redrabbit-hub-roblox?o=sharing'
-local discordLink = 'https://discord.gg/CnWs3hCNbt'
+local TGLink = 'https://t.me/market_redrabbit_bot'
 local uniqueKey = game:HttpGet'https://pastebin.com/raw/yfsakbmb'
 
 local ScriptsLink = [[
@@ -170,8 +170,8 @@ end)
 buyKeyButton.MouseButton1Click:Connect(function()
     game.StarterGui:SetCore("SendNotification", {
         Title = "Red Rabbit",
-        Text = "Link to buy the key copied to the clipboard.",
+        Text = "Link telegram to buy the key copied to the clipboard.",
         Duration = 4
     })
-    setclipboard(discordLink)
+    setclipboard(TGLink)
 end)
