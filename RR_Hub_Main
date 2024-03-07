@@ -4,6 +4,9 @@ local Notif = {}
 local CoreGUI = game:GetService("CoreGui")
 local TS = game:GetService("TweenService")
 
+local discordLink = 'https://discord.gg/wHb7KsFRHd'
+local TGLink = 'https://t.me/market_redrabbit_bot'
+
 local HIDEUI = get_hidden_gui or gethui
 if syn and typeof(syn) == "table" and RenderWindow then syn.protect_gui = gethui; end
 local function Hide_UI(gui)
@@ -3933,6 +3936,36 @@ local AccounFragmentsStat = InformMe:AddLabel("Fragments")
             end)
         end
     end)
+
+InformMe:AddSeperator("RedRabbit Info")
+
+InformMe:AddButton("Copy Discord Link",function()
+
+	pcall(function()
+		game.StarterGui:SetCore("SendNotification", {
+        	Title = "Red Rabbit",
+        	Text = "Link to discord community copied.",
+        	Duration = 4
+    	})
+    	setclipboard(discordLink)
+	end)
+end)
+
+
+InformMe:AddButton("Copy Telegram Link",function()
+	pcall(function()
+		game.StarterGui:SetCore("SendNotification", {
+        	Title = "Red Rabbit",
+        	Text = "Link telegram to buy the key copied to the clipboard.",
+        	Duration = 4
+    	})
+    	setclipboard(TGLink)
+	end)
+end)
+
+
+
+
 
 
 Main:AddSeperator("Farm Settings")
