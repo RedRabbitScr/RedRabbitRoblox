@@ -3840,14 +3840,13 @@ local InformMe = Library:AddTab("Information","4483345998")
 local Main = Library:AddTab("Main","4483345998")
 local M = Library:AddTab("Item","4483345998")
 local Ss = Library:AddTab("Stats","4483345998")
-local RaceV4 = Library:AddTab("Race V4","4483345998")
 local P = Library:AddTab("PVP","4483345998")
 local R = Library:AddTab("Raid","4483345998")
 local T = Library:AddTab("Teleport","4483345998")
 local S = Library:AddTab("Shop","4483345998")
-local D = Library:AddTab("Devil Fruit","4483345998")
+local D = Library:AddTab("Fruit","4483345998")
 local Misc = Library:AddTab("Misc","4483345998")
-
+local RaceV4 = Library:AddTab("Race V4","4483345998")
 
 
 InformMe:AddSeperator("My Account")
@@ -3962,9 +3961,6 @@ InformMe:AddButton("Copy Telegram Link",function()
     	setclipboard(TGLink)
 	end)
 end)
-
-
-
 
 
 
