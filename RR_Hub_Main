@@ -3929,7 +3929,7 @@ local AccountPremStatusStat = InformMe:AddLabel("Status")
 
 InformMe:AddSeperator("RedRabbit Info")
 
-InformMe:AddButton("[ Copy Link ] Discord Community",function()
+InformMe:AddButton("[Copy Link] Discord Community",function()
 
 	pcall(function()
 		game.StarterGui:SetCore("SendNotification", {
@@ -3942,11 +3942,11 @@ InformMe:AddButton("[ Copy Link ] Discord Community",function()
 end)
 
 
-InformMe:AddButton("[ Copy Link ] - Buy Premium Status in Telegram Bot",function()
+InformMe:AddButton("[Copy Link] Buy premium-status in Telegram",function()
 	pcall(function()
 		game.StarterGui:SetCore("SendNotification", {
         	Title = "Red Rabbit",
-        	Text = "Link telegram to buy the key copied to the clipboard.",
+        	Text = "Link telegram to buy the key copied.",
         	Duration = 4
     	})
     	setclipboard(TGLink)
@@ -13228,15 +13228,38 @@ end)
         end
     end)
     
-    Misc:AddButton("Copy Server ID",function()
-    		CopyServerID()
+    Misc:AddTextbox("Place Server ID [PREMIUM]", true, function(value)
+    _G.Job = value
+    end)
+
+    Misc:AddButton("Join Server ID [PREMIUM]",function()
+    	JoinServerID()
+    end)
+    
+function JoinServerID()
+        if PremUser == false then 
+            pcall(function()
+            game.StarterGui:SetCore("SendNotification", {
+            Title = "Free version Red Rabbit",
+            Text = "You dont Premium User! This feature is for premium users.",
+            Duration = 4
+        })
+            end)
+        end
+        if PremUser == true then 
+            game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId,_G.Job, game.Players.LocalPlayer)
+        end
+    end
+
+    Misc:AddButton("Copy Server ID [PREMIUM]",function()
+            CopyServerID()
     end)
     function CopyServerID()
         if PremUser == false then 
             pcall(function()
             game.StarterGui:SetCore("SendNotification", {
             Title = "Red Rabbit",
-            Text = "This feature is for premium users",
+            Text = "You dont Premium User! This feature is for premium users.",
             Duration = 4
         })
             end)
@@ -13245,15 +13268,7 @@ end)
             setclipboard(tostring(game.JobId))
         end
     end
-    
-    Misc:AddTextbox("Place Server ID", true, function(value)
-    _G.Job = value
-    end)
 
-    Misc:AddButton("Join Server",function()
-    		game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId,_G.Job, game.Players.LocalPlayer)
-    end)
-    
     Misc:AddSeperator("Misc")
     
     Misc:AddButton("Open Gui Shop",function()
