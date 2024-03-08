@@ -12767,7 +12767,7 @@ end)
 
     ------------Bone------------------
     
-    S:AddSeperator("Ã°Å¸Â¦Â´ BonesÃ°Å¸Â¦Â´")
+    S:AddSeperator("Bones")
     
     S:AddButton("Buy Surprise [ $50 Bone ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
@@ -12775,7 +12775,7 @@ end)
     
     ------------Stat------------------
     
-    S:AddSeperator("Ã°Å¸â€œÅ  Fragments Ã°Å¸â€œÅ ")
+    S:AddSeperator("Fragments")
 
 S:AddButton("Reset Stats (Use 2.5K Fragments)", function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Refund","1")
@@ -12787,7 +12787,7 @@ S:AddButton("Random Race (Use 3K Fragments)", function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Reroll","2")
 end)
     --------------Accessories-----------------
-        S:AddSeperator("Ã¢Å¡â„¢Ã¯Â¸Â Accessories Ã¢Å¡â„¢Ã¯Â¸Â")
+        S:AddSeperator("Accessories")
     S:AddButton("Black Cape [ $50,000 Beli ]",function()
         local args = {
             [1] = "BuyItem",
@@ -12812,45 +12812,7 @@ end)
     
     D:AddSeperator("Sniper")
     
-    FruitList = {
-        "Rocket-Rocket",
-        "Spike-Spike",
-        "Chop-Chop",
-        "Spring-Spring",
-        "Kilo-Kilo",
-        "Spin-Spin",
-        "Bird: Falcon",
-        "Smoke-Smoke",
-        "Flame-Flame",
-        "Ice-Ice",
-        "Sand-Sand",
-        "Dark-Dark",
-        "Revive-Revive",
-        "Diamond-Diamond",
-        "Light-Light",
-        "Love-Love",
-        "Rubber-Rubber",
-        "Barrier-Barrier",
-        "Magma-Magma",
-        "Door-Door",
-        "Quake-Quake",
-        "Human-Human: Buddha",
-        "String-String",
-        "Bird-Bird: Phoenix",
-        "Rumble-Rumble",
-        "Sound-Sound", 
-        "Pain-Pain", 
-        "Gravity-Gravity",
-        "Mammoth-Mammoth", 
-        "Dough-Dough",
-        "Venom-Venom",
-        "Shadow-Shadow",
-        "Control-Control",
-        "Soul-Soul",
-        "Dragon-Dragon",
-        "Leopard-Leopard"
-    }
-    
+
     local Remote_GetFruits = game.ReplicatedStorage:FindFirstChild("Remotes").CommF_:InvokeServer("GetFruits");
     Table_DevilFruitSniper = {}
     ShopDevilSell = {}
@@ -12894,9 +12856,7 @@ for _, fruitData in pairs(result) do
     end
 end
 
--- Tampilkan daftar buah yang ["OnSale"] = true dengan \n di awal
-print("\n" .. table.concat(fruitsOnSale, "\n"))
-
+-- Stock
 local gui = Instance.new("ScreenGui")
 gui.Parent = game.Players.LocalPlayer.PlayerGui
 gui.Name = "MyGUI"
@@ -12913,12 +12873,12 @@ textLabel.Size = UDim2.new(1, 0, 1, 0)
 textLabel.Text = table.concat(fruitsOnSale, "\n")
 textLabel.TextColor3 = Color3.new(1, 1, 1)
 
--- Fungsi untuk menutup GUI
+-- Close GUI
 local function closeGUI()
     gui:Destroy()
 end
 
--- Fungsi untuk mengatur drag
+-- Drag
 local isDragging = false
 local dragInput = nil
 local dragStart = nil
@@ -12980,8 +12940,6 @@ for _, fruitData in pairs(result) do
     end
 end
 
--- Tampilkan daftar buah yang ["OnSale"] = true dengan \n di awal
-print("\n" .. table.concat(fruitsOnSale, "\n"))
 
 local gui = Instance.new("ScreenGui")
 gui.Parent = game.Players.LocalPlayer.PlayerGui
@@ -13110,7 +13068,7 @@ closeButton.MouseButton1Click:Connect(closeGUI)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
     end)
     
-        D:AddButton("Open Devil Shop",function()
+        D:AddButton("Open Gui Shop",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
         game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Visible = true
     end)
@@ -13187,7 +13145,7 @@ end)
     end
     end)
     
-    D:AddToggle("Tween to Fruit",_G.Tweenfruit,function(value)
+    D:AddToggle("Teleport to Fruit",_G.Tweenfruit,function(value)
     _G.Tweenfruit = value
     StopTween(_G.Tweenfruit)
     end)
@@ -13293,7 +13251,7 @@ end)
     
     Misc:AddSeperator("Misc")
     
-    Misc:AddButton("Open Devil Shop",function()
+    Misc:AddButton("Open Gui Shop",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
         game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Visible = true
     end)
@@ -13538,7 +13496,7 @@ Misc:AddToggle("Graphic",false,function(v)
         end
     end)
 
-    Misc:AddSeperator("          Misc          ")
+    Misc:AddSeperator("Misc")
 
 Misc:AddToggle("Anti AFK", true, function()
 local vu = game:GetService("VirtualUser")
@@ -13873,6 +13831,14 @@ Misc:AddButton("Kaitun Cap", function(value)
     
     local x2Code = {
         "KITTGAMING",
+        "REWARDFUN",
+        "NEWTROLL",
+        "KITT_RESET",
+        "Enyu_is_noob",
+        "Magicbus",
+        "Starcodeheo",
+        "fudd10_v2",
+        "Sub2CaptainMaui",
         "ENYU_IS_PRO",
         "FUDD10",
         "BIGNEWS",
