@@ -13242,13 +13242,11 @@ end)
     		setclipboard(tostring(game.JobId))
     	end
         if PremUser == false then
-    		pcall(function()
 			game.StarterGui:SetCore("SendNotification", {
         	Title = "Red Rabbit",
         	Text = "This feature is for premium users",
         	Duration = 4
     	})
-    	end)
     end)
     
     Misc:AddTextbox("Place Server Id", true, function(value)
@@ -13260,13 +13258,11 @@ end)
     		game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId,_G.Job, game.Players.LocalPlayer)
         end
     	if PremUser == false then
-    		pcall(function()
 			game.StarterGui:SetCore("SendNotification", {
         	Title = "Red Rabbit",
         	Text = "This feature is for premium users",
         	Duration = 4
     	})
-    	end)
     end)
     
     Misc:AddSeperator("Misc")
