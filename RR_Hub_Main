@@ -3896,49 +3896,40 @@ spawn(function()
 	end
 end)
 
-local AccounNameStat = InformMe:AddLabel("Name")
+local AccounNameLvLStat = InformMe:AddLabel("Name")
     
     spawn(function()
         while wait() do
             pcall(function()
-                AccounNameStat:Set("Name : [ "..tostring(game:GetService("Players")["LocalPlayer"]).." ] | Status: [ "..PremStatus.." ]")
+                AccounNameLvLStat:Set("Name : [ "..tostring(game:GetService("Players")["LocalPlayer"]).." ] | Level : [ "..tostring(game:GetService("Players")["LocalPlayer"].Data.Level.Value).." ]")
             end)
         end
     end)
 
-local AccounLVLStat = InformMe:AddLabel("Level")
+local AccountBeliFragmentsStat = InformMe:AddLabel("Level")
     
     spawn(function()
         while wait() do
             pcall(function()
-                AccounLVLStat:Set("Level : [ "..tostring(game:GetService("Players")["LocalPlayer"].Data.Level.Value).." ]")
+                AccountBeliFragmentsStat:Set("Beli : [ "..tostring(game:GetService("Players")["LocalPlayer"].Data.Beli.Value).." ] | Fragments : [ "..tostring(game:GetService("Players")["LocalPlayer"].Data.Fragments.Value).." ]")
             end)
         end
     end)
 
-local AccounBeliStat = InformMe:AddLabel("Beli")
+local AccountPremStatusStat = InformMe:AddLabel("Status")
     
     spawn(function()
         while wait() do
             pcall(function()
-                AccounBeliStat:Set("Beli : [ "..tostring(game:GetService("Players")["LocalPlayer"].Data.Beli.Value).." ]")
+                AccountPremStatusStat:Set("Status: [ "..PremStatus.." ]")
             end)
         end
     end)
 
-local AccounFragmentsStat = InformMe:AddLabel("Fragments")
-    
-    spawn(function()
-        while wait() do
-            pcall(function()
-                AccounFragmentsStat:Set("Fragments : [ "..tostring(game:GetService("Players")["LocalPlayer"].Data.Fragments.Value).." ]")
-            end)
-        end
-    end)
 
 InformMe:AddSeperator("RedRabbit Info")
 
-InformMe:AddButton("Copy Discord Link",function()
+InformMe:AddButton("[ Copy Link ] Discord Community",function()
 
 	pcall(function()
 		game.StarterGui:SetCore("SendNotification", {
@@ -3951,7 +3942,7 @@ InformMe:AddButton("Copy Discord Link",function()
 end)
 
 
-InformMe:AddButton("Copy Telegram Link",function()
+InformMe:AddButton("[ Copy Link ] - Buy Premium Status in Telegram Bot",function()
 	pcall(function()
 		game.StarterGui:SetCore("SendNotification", {
         	Title = "Red Rabbit",
@@ -12568,7 +12559,7 @@ S:AddToggle("Auto Buy Abilities", false, function(t)
     end
 end)
 
-S:AddSeperator("Ã¢â€ºÂµ Boats Ã¢â€ºÂµ")
+S:AddSeperator("Boats")
 
 BoatList = {
     "Pirate Sloop",
@@ -13237,11 +13228,25 @@ end)
         end
     end)
     
-    Misc:AddButton("Copy Server Id",function()
-    		setclipboard(tostring(game.JobId))
+    Misc:AddButton("Copy Server ID",function()
+    		CopyServerID()
     end)
+    function CopyServerID()
+        if PremUser == false then 
+            pcall(function()
+            game.StarterGui:SetCore("SendNotification", {
+            Title = "Red Rabbit",
+            Text = "This feature is for premium users",
+            Duration = 4
+        })
+            end)
+        end
+        if PremUser == true then 
+            setclipboard(tostring(game.JobId))
+        end
+    end
     
-    Misc:AddTextbox("Place Server Id", true, function(value)
+    Misc:AddTextbox("Place Server ID", true, function(value)
     _G.Job = value
     end)
 
