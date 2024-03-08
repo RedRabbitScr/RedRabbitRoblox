@@ -13238,15 +13238,7 @@ end)
     end)
     
     Misc:AddButton("Copy Server Id",function()
-    	if PremUser == true then
     		setclipboard(tostring(game.JobId))
-    	end
-        if PremUser == false then
-			game.StarterGui:SetCore("SendNotification", {
-        	Title = "Red Rabbit",
-        	Text = "This feature is for premium users",
-        	Duration = 4
-    	})
     end)
     
     Misc:AddTextbox("Place Server Id", true, function(value)
@@ -13254,15 +13246,7 @@ end)
     end)
 
     Misc:AddButton("Join Server",function()
-    	if PremUser == true then
     		game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId,_G.Job, game.Players.LocalPlayer)
-        end
-    	if PremUser == false then
-			game.StarterGui:SetCore("SendNotification", {
-        	Title = "Red Rabbit",
-        	Text = "This feature is for premium users",
-        	Duration = 4
-    	})
     end)
     
     Misc:AddSeperator("Misc")
