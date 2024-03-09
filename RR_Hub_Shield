@@ -92,7 +92,7 @@ spawn(function()
       PremTable = HttpService:JSONDecode(urlPremiumList)
     end)
 
-    if CheckTimerPrem >= 0 and CheckTimerPrem < 100 and PremUser == false then
+    if CheckTimerPrem >= 0 and CheckTimerPrem < 100 and PremUser == false and PremCheck == true then
       CheckTimerPrem = CheckTimerPrem + 1
       PremNameLine = "UserPrem"..tostring(CheckTimerPrem)
       PremStats = tostring(PremTable["users"][PremNameLine])
