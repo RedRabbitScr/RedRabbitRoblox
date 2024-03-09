@@ -3853,44 +3853,44 @@ InformMe:AddSeperator("My Account")
 
 local PremHttpService = game:GetService("HttpService")
 local urlPremiumList = game:HttpGet'https://pastebin.com/raw/06RJiXYp'
-CheckTimerPrem = 0
-PremUser = false
-PremCheck = true
-PremStatus = "None"
+CheckTimerPrem123 = 0
+PremUser123 = false
+PremCheck123 = true
+PremStatus123 = "None"
 spawn(function()
         while wait() do
 		PremTable = {}
-		LocalNameCheck = tostring(game.Players.LocalPlayer)
+		LocalNameCheck123 = tostring(game.Players.LocalPlayer)
 
 		pcall(function()
    		PremTable = PremHttpService:JSONDecode(urlPremiumList)
 		end)
 
-    if CheckTimerPrem >= 0 and CheckTimerPrem < 100 and PremUser == false and PremCheck == true then
-    	CheckTimerPrem = CheckTimerPrem + 1
-  		PremNameLine = "UserPrem"..tostring(CheckTimerPrem)
+    if CheckTimerPrem123 >= 0 and CheckTimerPrem123 < 100 and PremUser123 == false and PremCheck123 == true then
+    	CheckTimerPrem123 = CheckTimerPrem123 + 1
+  		PremNameLine = "UserPrem"..tostring(CheckTimerPrem123)
   		PremStats = tostring(PremTable["users"][PremNameLine])
 
-  		if PremStats == LocalNameCheck then 
-  			PremUser = true
-  			CheckTimerPrem = 100
+  		if PremStats == LocalNameCheck123 then 
+  			PremUser123 = true
+  			CheckTimerPrem123 = 100
   		end
   	end
 
-  	if PremUser == true and CheckTimerPrem == 100 and PremCheck == true then 
-		PremCheck = false
+  	if PremUser123 == true and CheckTimerPrem123 == 100 and PremCheck123 == true then 
+		PremCheck123 = false
   	end
 
-    if PremUser == false and CheckTimerPrem == 100 and PremCheck == true then 
-      	PremCheck = false
+    if PremUser123 == false and CheckTimerPrem123 == 100 and PremCheck123 == true then 
+      	PremCheck123 = false
     end
 
-    if PremUser == true then 
-		PremStatus = "Premium"
+    if PremUser123 == true then 
+		PremStatus123 = "Premium"
   	end
 
-    if PremUser == false then 
-      	PremStatus = "Free"
+    if PremUser123 == false then 
+      	PremStatus123 = "Free"
     end
 
 	end
@@ -3916,12 +3916,12 @@ local AccountBeliFragmentsStat = InformMe:AddLabel("Level")
         end
     end)
 
-local AccountPremStatusStat = InformMe:AddLabel("Status")
+local AccountPremStatus123Stat = InformMe:AddLabel("Status")
     
     spawn(function()
         while wait() do
             pcall(function()
-                AccountPremStatusStat:Set("Status: [ "..PremStatus.." ]")
+                AccountPremStatus123Stat:Set("Status: [ "..PremStatus123.." ]")
             end)
         end
     end)
@@ -13237,7 +13237,7 @@ end)
     end)
     
 function JoinServerID()
-        if PremUser == false then 
+        if PremUser123 == false then 
             pcall(function()
             game.StarterGui:SetCore("SendNotification", {
             Title = "Free version Red Rabbit",
@@ -13246,7 +13246,7 @@ function JoinServerID()
         })
             end)
         end
-        if PremUser == true then 
+        if PremUser123 == true then 
             game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId,_G.Job, game.Players.LocalPlayer)
         end
     end
@@ -13255,7 +13255,7 @@ function JoinServerID()
             CopyServerID()
     end)
     function CopyServerID()
-        if PremUser == false then 
+        if PremUser123 == false then 
             pcall(function()
             game.StarterGui:SetCore("SendNotification", {
             Title = "Red Rabbit",
@@ -13264,7 +13264,7 @@ function JoinServerID()
         })
             end)
         end
-        if PremUser == true then 
+        if PremUser123 == true then 
             setclipboard(tostring(game.JobId))
         end
     end
